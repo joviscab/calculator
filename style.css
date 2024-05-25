@@ -1,3 +1,8 @@
+@font-face{
+    font-family: lcdFont;
+    src: url(fontlcd.woff2)
+}
+
 html, body {
     height: 100%;
     margin: 0;
@@ -29,6 +34,7 @@ h1 {
     overflow: hidden;
     margin: 20px auto;
     background-color: #D6CD6Aff;;
+    border-radius: 3cqb;
 }
 
 #wrapper {
@@ -56,10 +62,9 @@ h1 {
 }
 
 p {
-    font-family: Bungee Shade, serif;
-    font-size: 300%;
+    font-family: lcdFont, serif;
+    font-size: 330%;
     color: black;
-    font-weight: bolder;
     background-color:  #D6CD6Aff;
     margin: 100px 0px 150px;
     border-radius: 1cqb;
