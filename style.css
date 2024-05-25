@@ -63,16 +63,18 @@ h1 {
 
 p {
     font-family: lcdFont, serif;
-    font-size: 330%;
+    font-size: 200%;
+    font-weight: bolder;
     color: black;
     background-color:  #D6CD6Aff;
-    margin: 100px 0px 150px;
+    margin: 100px 0px 140px;
     border-radius: 1cqb;
+    padding: 6%;
 }
 
 #display {
     background-color: black;
     text-align: right;
     padding: 40px;
-    margin: 100px -10px;
+    margin: 100px -5px;
 }

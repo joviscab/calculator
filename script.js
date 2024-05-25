@@ -44,3 +44,13 @@ function operate(operator, firstNumber, secondNumber) {
     }
     return result;
 }
+
+//Functions to populate the display
+const buttons = document.querySelectorAll("button");
+
+buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+        const display = button.id;
+        document.getElementById("displaytxt").textContent = `${button.id}`;
+    });
+});
