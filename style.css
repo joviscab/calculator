@@ -7,4 +7,67 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 20px;
+}
+
+h1 {
+    margin-top: 10px;
+    margin-bottom: -20px;
+    font-family: Bungee Shade, serif;
+    font-style: normal;
+    font-size: 200%;
+    
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 370px;
+    height: 600px;
+    border: 3px solid black;
+    overflow: hidden;
+    margin: 20px auto;
+    background-color: #D6CD6Aff;;
+}
+
+#wrapper {
+    position: relative;
+    text-align: center;
+    
+}
+
+.btn {
+    font-family: Orbitron, serif;
+    font-size: 120%;
+    font-weight: bolder;
+    flex: 1;
+    margin: 2px;
+    padding: 10px;
+    background-color: black;
+    color: #D6CD6Aff;
+    border-radius: 25%;
+}
+
+#firstline, #secondline, #thirdline, #lastline {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 0;
+}
+
+p {
+    font-family: Bungee Shade, serif;
+    font-size: 300%;
+    color: black;
+    font-weight: bolder;
+    background-color:  #D6CD6Aff;
+    margin: 100px 0px 150px;
+    border-radius: 1cqb;
+}
+
+#display {
+    background-color: black;
+    text-align: right;
+    padding: 40px;
+    margin: 100px -10px;
 }

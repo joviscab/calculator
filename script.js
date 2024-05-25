@@ -21,21 +21,22 @@ function divide(a, b) {
 //Variables calculator
 let firstNumber;
 let secondNumber;
+let operator;
 
 //Function operate calculator
 function operate(operator, firstNumber, secondNumber) {
     let result;
     switch (operator) {
-        case add:
+        case "add":
             result = add(firstNumber, secondNumber);
             break;
-        case subtract:
+        case "subtract":
             result = subtract(firstNumber, secondNumber);
             break;
-        case multiply:
+        case "multiply":
             result = multiply(firstNumber, secondNumber);
             break;       
-        case divide:
+        case "divide":
             result = divide(firstNumber, secondNumber);
             break;     
         default:
