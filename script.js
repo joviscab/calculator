@@ -51,60 +51,27 @@ let displayValue = document.getElementById("displaytxt");
 
 buttons.forEach((button) => {
     button.addEventListener("click", () => {
-        switch (button.id) {
-            case "0":
-                displaytxt.textContent += button.id;
-                break;
-            case "1":
-                displaytxt.textContent += button.id;
-                break;
-            case "2":
-                displaytxt.textContent += button.id;
-                break;    
-            case "3":
-                displaytxt.textContent += button.id;
-                break;
-            case "4":
-                displaytxt.textContent += button.id;
-                break;
-            case "5":
-                displaytxt.textContent += button.id;
-                break;
-            case "6":
-                displaytxt.textContent += button.id;
-                break;
-            case "7":
-                displaytxt.textContent += button.id;
-                break;
-            case "8":
-                displaytxt.textContent += button.id;
-                break;
-            case "9":
-                displaytxt.textContent += button.id;
-                break;
-            case ".":
-                displaytxt.textContent += button.id;
-                break;
-            case "C":
-                displaytxt.textContent = "";
-                break;
-            case "AC":
-                displaytxt.textContent = "";
-                break;
-            case "x":
-                let firstNumber = parseFloat(displaytxt.textContent);
-                console.log(firstNumber);
-                displaytxt.textContent = "";
-
-//How to solve this shiiiiiiiit
-
-                let secondNumber = parseFloat(displaytxt.textContent);
-                console.log(secondNumber);
-                operate("multiply", firstNumber, secondNumber);
-                let result;
-                displaytxt.textContent = result;
-                break;
+        if (button.className = "btn-number") {
+            displaytxt.textContent += button.id;
         }
-       
+            
+
     });
 });
+
+//Functions to clear the display
+document.getElementById("C").onclick = function() {
+    displaytxt.textContent = "";
+}
+
+document.getElementById("AC").onclick = function() {
+    displaytxt.textContent = "";
+}
+
+
+
+//Function to operate with th equals button
+document.getElementById("=").onclick = function() {
+    operate(operator, firstNumber, secondNumber); 
+    displaytxt.textContent = result;
+}

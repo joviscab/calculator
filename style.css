@@ -43,16 +43,16 @@ h1 {
     
 }
 
-.btn {
+button[class*="btn-"]{
     font-family: Orbitron, serif;
     font-size: 120%;
     font-weight: bolder;
     flex: 1;
-    margin: 2px;
-    padding: 10px;
+    margin: 12px 12px 12px 12px;
+    padding: 5px;
     background-color: black;
     color: #D6CD6Aff;
-    border-radius: 25%;
+    border-radius: 1cqb;
 }
 
 #firstline, #secondline, #thirdline, #lastline {
@@ -75,6 +75,6 @@ p {
 #display {
     background-color: black;
     text-align: right;
-    padding: 40px;
-    margin: 100px -5px;
+    padding: 50px;
+    margin: 55px -5px;
 }
