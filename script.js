@@ -31,6 +31,7 @@ function divide(a, b) {
 let firstNumber = "";
 let secondNumber = "";
 let operator = "";
+let previousResult = "";
  
 //Function operate calculator
 function operate(operator, firstNumber, secondNumber) {
@@ -61,7 +62,6 @@ let displayValue = document.getElementById("displaytxt");
 buttons.forEach((button) => {
     button.addEventListener("click", () => {
         if (button.classList.contains("btn-number")) {
-            // If the button is a number button, append the number to the appropriate number variable
             if (operator === "") {
                 firstNumber += button.id;
                 displayValue.textContent = firstNumber;
@@ -70,7 +70,6 @@ buttons.forEach((button) => {
                 displayValue.textContent = secondNumber;
             }
         } else if (button.id === "." && !((operator === "" && firstNumber.includes(".")) || (operator !== "" && secondNumber.includes(".")))) {
-            // If the button is a decimal point and the current number doesn't already contain a decimal point, append it
             if (operator === "") {
                 firstNumber += ".";
                 displayValue.textContent = firstNumber;
@@ -78,6 +77,10 @@ buttons.forEach((button) => {
                 secondNumber += ".";
                 displayValue.textContent = secondNumber;
             }
+        }
+
+        if (button.id === "." && displayValue.textContent.includes(".")) {
+            button.disabled = true;
         }
     });
 });
@@ -89,11 +92,31 @@ document.getElementById("C").onclick = function() {
     operator = "";
     displayValue.textContent = "";
 };
+
+//Function to clear the display
+document.getElementById("C").onclick = function() {
+    if (secondNumber !== "") {
+        secondNumber = "";
+        displayValue.textContent = firstNumber + operator;
+    } else if (operator !== "") {
+        operator = "";
+        displayValue.textContent = firstNumber;
+    } else {
+        firstNumber = "";
+        displayValue.textContent = "";
+    }
+    document.getElementById(".").disabled = false;
+};
+
+
+
+
  
 document.getElementById("AC").onclick = function() {
     firstNumber = "";
     secondNumber = "";
     operator = "";
+    previousResult = "";
     displayValue.textContent = "";
 };
  
@@ -103,12 +126,71 @@ buttons.forEach((button) => {
         if (button.classList.contains("btn-operator")) {
             operator = button.id;
             displayValue.textContent = "";
+            document.getElementById(".").disabled = false;
         }
     });
 });
  
 //Function to operate with the equals button
 document.getElementById("=").onclick = function() {
-    let result = operate(operator, parseFloat(firstNumber), parseFloat(secondNumber)); 
+    let result;
+    if (previousResult !== "") {
+        // Use the previous result as the first number
+        result = operate(operator, parseFloat(previousResult), parseFloat(secondNumber));
+    } else {
+        result = operate(operator, parseFloat(firstNumber), parseFloat(secondNumber));
+    }
     displayValue.textContent = result;
+    previousResult = result; 
+    firstNumber = ""; 
+    secondNumber = ""; 
+    document.getElementById(".").disabled = false;
 };
+
+//Add event listeners for keyboard input
+document.addEventListener("keydown", (event) => {
+    const key = event.key;
+    const isNumber = /^\d$/.test(key);
+    const isOperator = "+-x÷".includes(key);
+    const isEquals = key === "=" || key === "Enter";
+    const isDecimal = key === ".";
+
+    if (isNumber) {
+        if (operator === "") {
+            firstNumber += key;
+            displayValue.textContent = firstNumber;
+        } else {
+            secondNumber += key;
+            displayValue.textContent = secondNumber;
+        }
+    }
+
+    if (isOperator) {
+        operator = key;
+        displayValue.textContent = "";
+    }
+
+    if (isDecimal && !((operator === "" && firstNumber.includes(".")) || (operator !== "" && secondNumber.includes(".")))) {
+        if (operator === "") {
+            firstNumber += ".";
+            displayValue.textContent = firstNumber;
+        } else {
+            secondNumber += ".";
+            displayValue.textContent = secondNumber;
+        }
+    }
+
+    if (isEquals) {
+        let result;
+        if (previousResult !== "") {
+            result = operate(operator, parseFloat(previousResult), parseFloat(secondNumber));
+        } else {
+            result = operate(operator, parseFloat(firstNumber), parseFloat(secondNumber));
+        }
+        displayValue.textContent = result;
+        previousResult = result;
+        firstNumber = "";
+        secondNumber = "";
+        document.getElementById(".").disabled = false;
+    }
+});
