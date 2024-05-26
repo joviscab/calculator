@@ -20,17 +20,18 @@
 }
 
 #buttons-container {
-   margin-top: 270px;
-
+   margin-top: 366px;
+   margin-left: -10px;
+   position: fixed;
 }
 
 button[class*="btn-"]{
     font-family: Orbitron, serif;
-    font-size: 90%;
+    font-size: 93%;
     font-weight: bolder;
     flex: 1;
-    margin: 10px 12px 12px 12px;
-    padding: 6px;
+    margin: 14px 14px 14px 14px;
+    padding: 7px;
     background-color: black;
     color: #D6CD6Aff;
     border-radius: 1cqb;
@@ -52,7 +53,7 @@ button[class*="btn-"]{
     height: 100%; 
     box-sizing: border-box; 
     border-radius: 1cqb;
-    overflow: hidden;
+  
 }
 
 #display {
