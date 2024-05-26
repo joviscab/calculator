@@ -27,16 +27,16 @@ let operator;
 function operate(operator, firstNumber, secondNumber) {
     let result;
     switch (operator) {
-        case "add":
+        case "+":
             result = add(firstNumber, secondNumber);
             break;
-        case "subtract":
+        case "-":
             result = subtract(firstNumber, secondNumber);
             break;
-        case "multiply":
+        case "*":
             result = multiply(firstNumber, secondNumber);
             break;       
-        case "divide":
+        case "÷":
             result = divide(firstNumber, secondNumber);
             break;     
         default:
@@ -51,11 +51,9 @@ let displayValue = document.getElementById("displaytxt");
 
 buttons.forEach((button) => {
     button.addEventListener("click", () => {
-        if (button.className = "btn-number") {
-            displaytxt.textContent += button.id;
+        if (button.classList.contains("btn-number")) {
+            displayValue.textContent += button.id;
         }
-            
-
     });
 });
 
@@ -68,10 +66,36 @@ document.getElementById("AC").onclick = function() {
     displaytxt.textContent = "";
 }
 
+//Function to get the first number
+buttons.forEach((button) => {
+    console.log(`Adding event listener to button with id: ${button.id} and class: ${button.className}`);
+    button.addEventListener("click", () => {
+        console.log(`Button clicked with id: ${button.id} and class: ${button.className}`);
+        if (button.classList.contains("btn-operator")) {
+            operator = button.id;
+            firstNumber = displaytxt.textContent;
+            console.log(`First number set to: ${firstNumber}`);
+            displaytxt.textContent = "";
+        }
+    });
+});
 
+//Function to get the second number
+buttons.forEach((button) => {
+    console.log(`Adding event listener to button with id: ${button.id} and class: ${button.className}`);
+    button.addEventListener("click", () => {
+        console.log(`Button clicked with id: ${button.id} and class: ${button.className}`);
+        if (button.classList.contains("btn-equals")) {
+            secondNumber = displaytxt.textContent;
+            console.log(`Second number set to: ${secondNumber}`);
+            displaytxt.textContent = "";
+        }
+    });
+});
 
-//Function to operate with th equals button
+//Function to operate with the equals button
 document.getElementById("=").onclick = function() {
-    operate(operator, firstNumber, secondNumber); 
+    console.log(`Using operator: ${operator}`);
+    let result = operate(operator, parseInt(firstNumber), parseInt(secondNumber)); 
     displaytxt.textContent = result;
-}
+};
