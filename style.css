@@ -3,14 +3,19 @@
     src: url(fontlcd.woff2)
 }
 
+html {
+    cursor: url('hand2.png'), auto;
+}
+
+
 body {
     background-image: url('kraft.jpg');
-   /* background-repeat: no-repeat;*/
     background-size: 60% 60%;
     background-position: 125%;
     background-color: #D6CD6Aff;
     transition: background-size 25s, background-position 25s, background-color 25s;
 }
+
 
 .effect {
     background-size: 10% 10%;
@@ -40,7 +45,6 @@ body {
     border-radius: 3cqb;
     background-image: url('pc.jpg');
     background-size: 100% 100%;
- 
 }
 
 #buttons-container {
@@ -60,6 +64,10 @@ button[class*="btn-"]{
     border-radius: 1cqb;
 }
 
+button {
+    cursor: url('hand2.png'), auto;
+}
+
 #firstline, #secondline, #thirdline, #lastline {
     display: flex;
     justify-content: space-between;
@@ -76,14 +84,8 @@ button[class*="btn-"]{
     height: 100%; 
     box-sizing: border-box; 
     border-radius: 1cqb;
-  
 }
 
 #display {
     text-align: right;
-}
-
-#blackpart {
-    background-color: black;
-    display: flex;
 }
