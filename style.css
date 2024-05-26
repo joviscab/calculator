@@ -3,6 +3,30 @@
     src: url(fontlcd.woff2)
 }
 
+body {
+    background-image: url('kraft.jpg');
+   /* background-repeat: no-repeat;*/
+    background-size: 60% 60%;
+    background-position: 125%;
+    background-color: #D6CD6Aff;
+    transition: background-size 25s, background-position 25s, background-color 25s;
+}
+
+.effect {
+    background-size: 10% 10%;
+    background-position: top;
+    background-color: #AABBCC;
+}
+
+#title {
+    display: flex;
+    font-family: Orbitron, serif;
+    font-weight: bolder;
+    justify-content: center;
+    position: fixed;
+}
+
+
 #container {
     display: flex;
     flex-direction: column;
@@ -20,8 +44,7 @@
 }
 
 #buttons-container {
-   margin-top: 366px;
-   margin-left: -10px;
+   margin-top: 375px;
    position: fixed;
 }
 
@@ -30,7 +53,7 @@ button[class*="btn-"]{
     font-size: 93%;
     font-weight: bolder;
     flex: 1;
-    margin: 14px 14px 14px 14px;
+    margin: 12px 14px 12px 14px;
     padding: 7px;
     background-color: black;
     color: #D6CD6Aff;

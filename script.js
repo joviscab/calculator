@@ -194,3 +194,11 @@ document.addEventListener("keydown", (event) => {
         document.getElementById(".").disabled = false;
     }
 });
+
+//Sound button
+const musicButton = document.getElementById('musicButton');
+const audio = new Audio('pctheme.mp3');
+
+musicButton.addEventListener('click', () => {
+    audio.play();
+});
