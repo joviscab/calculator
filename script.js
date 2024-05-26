@@ -13,7 +13,7 @@ function multiply(a, b) {
 
 function divide(a, b) {
     if (b === 0) {
-        throw new Error("Wtf dude?");
+        return "w t f";
     }
     return a / b;
 }
@@ -33,7 +33,7 @@ function operate(operator, firstNumber, secondNumber) {
         case "-":
             result = subtract(firstNumber, secondNumber);
             break;
-        case "*":
+        case "x":
             result = multiply(firstNumber, secondNumber);
             break;       
         case "÷":
@@ -68,13 +68,10 @@ document.getElementById("AC").onclick = function() {
 
 //Function to get the first number
 buttons.forEach((button) => {
-    console.log(`Adding event listener to button with id: ${button.id} and class: ${button.className}`);
     button.addEventListener("click", () => {
-        console.log(`Button clicked with id: ${button.id} and class: ${button.className}`);
         if (button.classList.contains("btn-operator")) {
             operator = button.id;
             firstNumber = displaytxt.textContent;
-            console.log(`First number set to: ${firstNumber}`);
             displaytxt.textContent = "";
         }
     });
@@ -82,12 +79,9 @@ buttons.forEach((button) => {
 
 //Function to get the second number
 buttons.forEach((button) => {
-    console.log(`Adding event listener to button with id: ${button.id} and class: ${button.className}`);
     button.addEventListener("click", () => {
-        console.log(`Button clicked with id: ${button.id} and class: ${button.className}`);
         if (button.classList.contains("btn-equals")) {
             secondNumber = displaytxt.textContent;
-            console.log(`Second number set to: ${secondNumber}`);
             displaytxt.textContent = "";
         }
     });
@@ -95,7 +89,6 @@ buttons.forEach((button) => {
 
 //Function to operate with the equals button
 document.getElementById("=").onclick = function() {
-    console.log(`Using operator: ${operator}`);
     let result = operate(operator, parseInt(firstNumber), parseInt(secondNumber)); 
     displaytxt.textContent = result;
 };
