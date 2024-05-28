@@ -63,7 +63,7 @@ function operate(operator, firstNumber, secondNumber) {
     return result;
 }
  
-//Functions to populate the display
+//Functions to populate the display with information
 const buttons = document.querySelectorAll("button");
 let displayValue = document.getElementById("displaytxt");
  

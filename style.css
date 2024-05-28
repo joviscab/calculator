@@ -48,16 +48,16 @@ body {
 }
 
 #buttons-container {
-   margin-top: 375px;
+   margin-top: 374px;
    position: fixed;
 }
 
 button[class*="btn-"]{
     font-family: Orbitron, serif;
-    font-size: 93%;
+    font-size: 100%;
     font-weight: bolder;
     flex: 1;
-    margin: 12px 14px 12px 14px;
+    margin: 13px 17px 9px 13px;
     padding: 7px;
     background-color: black;
     color: #D6CD6Aff;
@@ -71,7 +71,7 @@ button {
 #firstline, #secondline, #thirdline, #lastline {
     display: flex;
     justify-content: space-between;
-    margin: -5px 30px;
+    margin: -4px 28px;
 }
 
 #displaytxt {
