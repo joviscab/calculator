@@ -26,7 +26,12 @@ function divide(a, b) {
     let result = a / b;
     return isInteger(result) ? result.toString() : result.toFixed(2);
 }
- 
+
+function exponential(a,b) {
+    let result = Math.pow(a, b);
+    return isInteger(result) ? result.toString() : result.toFixed(2);
+}
+
 //Variables calculator
 let firstNumber = "";
 let secondNumber = "";
@@ -49,6 +54,9 @@ function operate(operator, firstNumber, secondNumber) {
         case "÷":
             result = divide(firstNumber, secondNumber);
             break;     
+        case "EXP":
+            result = exponential(firstNumber, secondNumber);
+            break;
         default:
             throw new Error("Unknown operator");
     }
@@ -201,4 +209,5 @@ const audio = new Audio('pctheme.mp3');
 
 musicButton.addEventListener('click', () => {
     audio.play();
+    document.body.classList.toggle('effect');
 });
