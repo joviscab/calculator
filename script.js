@@ -66,6 +66,9 @@ function operate(operator, firstNumber, secondNumber) {
 //Functions to populate the display with information
 const buttons = document.querySelectorAll("button");
 let displayValue = document.getElementById("displaytxt");
+
+//Initialize the display with 0
+displayValue.textContent = "0";
  
 buttons.forEach((button) => {
     button.addEventListener("click", () => {
@@ -95,37 +98,23 @@ buttons.forEach((button) => {
  
 //Functions to clear the display
 document.getElementById("C").onclick = function() {
-    firstNumber = "";
-    secondNumber = "";
-    operator = "";
-    displayValue.textContent = "";
-};
-
-//Function to clear the display
-document.getElementById("C").onclick = function() {
-    if (secondNumber !== "") {
-        secondNumber = "";
-        displayValue.textContent = firstNumber + operator;
-    } else if (operator !== "") {
-        operator = "";
-        displayValue.textContent = firstNumber;
+    if (operator === "") {
+        firstNumber = firstNumber.slice(0, -1);
+        displayValue.textContent = firstNumber || "0";
     } else {
-        firstNumber = "";
-        displayValue.textContent = "";
+        secondNumber = secondNumber.slice(0, -1);
+        displayValue.textContent = secondNumber || "0";
     }
     document.getElementById(".").disabled = false;
 };
-
-
-
-
  
 document.getElementById("AC").onclick = function() {
     firstNumber = "";
     secondNumber = "";
     operator = "";
     previousResult = "";
-    displayValue.textContent = "";
+    displayValue.textContent = "0";
+    document.getElementById(".").disabled = false;
 };
  
 //Function to handle operator button clicks
